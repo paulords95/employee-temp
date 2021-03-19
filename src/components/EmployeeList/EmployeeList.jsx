@@ -34,6 +34,9 @@ export default function EmployeeList() {
         options={employees}
         getOptionLabel={(option) => option.name}
         style={{ width: "70vw" }}
+        onChange={(event, value2) => {
+          console.log(value2);
+        }}
         renderInput={(params) => (
           <TextField {...params} label="Nome" variant="outlined" />
         )}
