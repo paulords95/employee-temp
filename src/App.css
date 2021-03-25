@@ -10,6 +10,7 @@ body {
   align-content: center;
   margin: auto;
   margin-top: 5em;
+  max-width: 600px;
 }
 
 .logo {

@@ -14,13 +14,8 @@ function App() {
   const notify = () => toast.success("Temperatura Salva");
   return (
     <div className="App">
-      <img className="logo" src={logo}></img>
-      <form
-        className="mb-6 w-4/5"
-        className="formTemp"
-        action="/"
-        method="post"
-      >
+      <img className="logo" src={logo} alt="logo"></img>
+      <form className="mb-6 w-4/5 formTemp" action="/" method="post">
         <EmployeeList />
         <Temperature />
 
