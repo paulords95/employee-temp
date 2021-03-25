@@ -24,11 +24,12 @@ export default function Temperature() {
   return (
     <div
       style={{
+        display: "flex",
         width: "100%",
-        margin: "0 auto",
         paddingTop: "10vh",
         paddingBottom: "10vh",
         paddingInline: "15vw",
+        justifyContent: "center",
       }}
     >
       <FormControl className={classes.formControl}>
