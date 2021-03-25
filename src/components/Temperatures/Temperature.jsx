@@ -27,6 +27,7 @@ export default function Temperature() {
         width: "100%",
         margin: "0 auto",
         paddingTop: "10vh",
+        paddingBottom: "10vh",
         paddingInline: "15vw",
       }}
     >
@@ -48,13 +49,12 @@ export default function Temperature() {
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">
-          Temperatura
-        </InputLabel>
+        <InputLabel id="demo-controlled-open-select-label"></InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           onChange={handleChange}
+          defaultValue={0}
         >
           <MenuItem value={0}>0</MenuItem>
           <MenuItem value={1}>1</MenuItem>

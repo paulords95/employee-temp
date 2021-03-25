@@ -33,7 +33,7 @@ export default function EmployeeList() {
         id="combo-box-demo"
         options={employees}
         getOptionLabel={(option) => option.name}
-        style={{ width: "70vw" }}
+        style={{ width: "85vw" }}
         onChange={(event, value2) => {
           console.log(value2);
         }}

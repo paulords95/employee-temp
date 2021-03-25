@@ -6,7 +6,30 @@ body {
 .App {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-content: center;
+  margin: auto;
+  margin-top: 5em;
+}
 
-  margin: 2em;
+.logo {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.formTemp {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.form-btn {
+  position: relative;
+  width: max-content;
+  margin-top: 10em;
+  margin: 0 auto;
 }
