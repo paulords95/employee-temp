@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { dbConnectSelect } = require("../db-connect");
+const { dbConnectInsert } = require("../db-connect");
 
 router.get("/insert-temp", async (req, res) => {});
 
