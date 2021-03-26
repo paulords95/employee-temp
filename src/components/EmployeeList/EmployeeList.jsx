@@ -1,10 +1,11 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export default function EmployeeList(props) {
   if (!props.employees) {
-    return <div>Carregando</div>;
+    return <CircularProgress />;
   } else {
     return (
       <div
