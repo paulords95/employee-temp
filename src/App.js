@@ -28,6 +28,14 @@ function App() {
     })();
   }, []);
 
+  const handleSubmit = () => {
+    if (currentEmployee.name.length < 2) {
+      toast.error(`Informe um usuário`);
+    } else {
+      toast.success(`Registro de temperatura para ${currentEmployee.name}`);
+    }
+  };
+
   return (
     <div className="App">
       <img className="logo" src={logo} alt="logo"></img>
@@ -35,21 +43,27 @@ function App() {
         <EmployeeList
           employees={employee}
           onChangeForm={(value, value1) => {
-            setCurrentEmployee({
-              name: value1.name,
-              cod: value1.cod,
-              nCra: value1.nCra,
-            });
+            if (value1) {
+              setCurrentEmployee({
+                name: value1.name,
+                cod: value1.cod,
+                nCra: value1.nCra,
+              });
+            }
+
+            if (value1 == null) {
+              setCurrentEmployee({
+                name: "",
+                cod: "",
+                nCra: "",
+              });
+            }
           }}
         />
         <Temperature />
 
         <Button
-          onClick={() => {
-            toast.success(
-              `Registro de temperatura para ${currentEmployee.name}`
-            );
-          }}
+          onClick={handleSubmit}
           className="form-btn"
           variant="contained"
           color="primary"
