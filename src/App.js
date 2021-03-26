@@ -15,7 +15,11 @@ import getEmployees from "./utils/getEmployees";
 
 function App() {
   const [employee, setEmployees] = useState();
-  const notify = () => toast.success("Temperatura Salva");
+  const [currentEmployee, setCurrentEmployee] = useState({
+    name: "",
+    cod: "",
+    nCra: "",
+  });
 
   useEffect(() => {
     (async () => {
@@ -28,11 +32,24 @@ function App() {
     <div className="App">
       <img className="logo" src={logo} alt="logo"></img>
       <form className="mb-6 w-4/5 formTemp" action="/" method="post">
-        <EmployeeList employees={employee} />
+        <EmployeeList
+          employees={employee}
+          onChangeForm={(value, value1) => {
+            setCurrentEmployee({
+              name: value1.name,
+              cod: value1.cod,
+              nCra: value1.nCra,
+            });
+          }}
+        />
         <Temperature />
 
         <Button
-          onClick={notify}
+          onClick={() => {
+            toast.success(
+              `Registrado temperatura para ${currentEmployee.name}`
+            );
+          }}
           className="form-btn"
           variant="contained"
           color="primary"
