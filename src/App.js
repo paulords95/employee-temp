@@ -15,6 +15,8 @@ import getEmployees from "./utils/getEmployees";
 
 function App() {
   const [employee, setEmployees] = useState();
+  const [temp, setTemp] = useState(36);
+  const [tempDecimals, setTempDecimals] = useState(0);
   const [currentEmployee, setCurrentEmployee] = useState({
     name: "",
     cod: "",
@@ -32,8 +34,15 @@ function App() {
     if (currentEmployee.name.length < 2) {
       toast.error(`Informe um usuário`);
     } else {
-      toast.success(`Registro de temperatura para ${currentEmployee.name}`);
+      toast.success(
+        `Registro de temperatura de ${temp}.${tempDecimals}º para ${currentEmployee.name}`
+      );
     }
+    setCurrentEmployee({
+      name: "",
+      cod: "",
+      nCra: "",
+    });
   };
 
   return (
@@ -60,7 +69,14 @@ function App() {
             }
           }}
         />
-        <Temperature />
+        <Temperature
+          handleChange={(value, value1) => {
+            setTemp(value1.props.value);
+          }}
+          handleChangeDecimals={(value, value1) => {
+            setTempDecimals(value1.props.value);
+          }}
+        />
 
         <Button
           onClick={handleSubmit}
