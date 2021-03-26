@@ -3,9 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export default function EmployeeList(props) {
-  useEffect(() => {
-    console.log(props.employees);
-  }, []);
   if (!props.employees) {
     return <div>Carregando</div>;
   } else {
@@ -21,9 +18,7 @@ export default function EmployeeList(props) {
           options={props.employees}
           getOptionLabel={(option) => option.name}
           style={{ width: "85vw", maxWidth: "500px" }}
-          onChange={(event, value2) => {
-            console.log(value2);
-          }}
+          onChange={props.onChangeForm}
           renderInput={(params) => (
             <TextField {...params} label="Nome" variant="outlined" />
           )}
