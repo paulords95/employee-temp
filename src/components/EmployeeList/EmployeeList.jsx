@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 export default function EmployeeList(props) {
-  useEffect(() => {
-    console.log(props.employees);
-  }, [props.employees]);
-
   if (!props.employees) {
     return <CircularProgress />;
   } else if (
@@ -18,7 +14,9 @@ export default function EmployeeList(props) {
   ) {
     return (
       <Alert severity="error">
-        <AlertTitle>Erro ao buscar colaboradores</AlertTitle>
+        <AlertTitle>
+          <strong>Erro ao buscar colaboradores</strong>
+        </AlertTitle>
         Não foi possível buscar lista de colaboradores -
         <strong> Reincie o aplicativo!</strong>
       </Alert>

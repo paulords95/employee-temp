@@ -16,10 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Temperature() {
+export default function Temperature(props) {
   const classes = useStyles();
-
-  const handleChange = (event) => {};
 
   return (
     <div
@@ -39,7 +37,7 @@ export default function Temperature() {
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
-          onChange={handleChange}
+          onChange={props.handleChange}
           defaultValue={36}
         >
           <MenuItem value={34}>34</MenuItem>
@@ -54,7 +52,7 @@ export default function Temperature() {
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
-          onChange={handleChange}
+          onChange={props.handleChangeDecimals}
           defaultValue={0}
         >
           <MenuItem value={0}>0</MenuItem>
