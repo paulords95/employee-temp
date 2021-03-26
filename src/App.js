@@ -47,7 +47,7 @@ function App() {
         <Button
           onClick={() => {
             toast.success(
-              `Registrado temperatura para ${currentEmployee.name}`
+              `Registro de temperatura para ${currentEmployee.name}`
             );
           }}
           className="form-btn"
