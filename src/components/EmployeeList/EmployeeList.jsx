@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import { Alert, AlertTitle } from "@material-ui/lab";
 
 export default function EmployeeList(props) {
+  useEffect(() => {
+    console.log(props.employees);
+  }, [props.employees]);
+
   if (!props.employees) {
     return <CircularProgress />;
+  } else if (
+    props.employees === undefined ||
+    props.employees.length < 5 ||
+    props.employees.toString() === "TypeError: Failed to fetch"
+  ) {
+    return (
+      <Alert severity="error">
+        <AlertTitle>Erro ao buscar colaboradores</AlertTitle>
+        Não foi possível buscar lista de colaboradores -
+        <strong> Reincie o aplicativo!</strong>
+      </Alert>
+    );
   } else {
     return (
       <div
