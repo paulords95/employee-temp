@@ -38,11 +38,6 @@ function App() {
         `Registro de temperatura de ${temp}.${tempDecimals}º para ${currentEmployee.name}`
       );
     }
-    setCurrentEmployee({
-      name: "",
-      cod: "",
-      nCra: "",
-    });
   };
 
   return (
