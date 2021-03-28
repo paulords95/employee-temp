@@ -38,9 +38,10 @@ function App() {
     };
     if (currentEmployee.name.length < 2) {
       toast.error(`Informe um usuário`);
+      return;
     }
     const response = await fetch(
-      "http://localhost:5555/employees/store-temperature",
+      "http://192.168.0.11:5555/employees/store-temperature",
       {
         method: "POST",
         headers: {
@@ -52,9 +53,9 @@ function App() {
 
     const parseRes = await response.json();
     if (response.status === 401) {
-      toast.error(parseRes);
+      toast.dark(parseRes);
     } else {
-      toast.success(parseRes);
+      toast.info(parseRes);
     }
   };
 
@@ -99,7 +100,11 @@ function App() {
         >
           Gravar
         </Button>
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          pauseOnFocusLoss={false}
+        />
       </form>
     </div>
   );

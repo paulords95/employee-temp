@@ -11,9 +11,9 @@ module.exports = async (req, res, next) => {
       return res
         .status(401)
         .json(
-          `Temperatura já aferida para ${
-            result.rows[0][3]
-          } na data de hoje | ${result.rows[0][4].toFixed(1)}º`
+          `Temperatura de ${result.rows[0][4].toFixed(
+            1
+          )}º já aferida na data de hoje para ${result.rows[0][3]}`
         );
     }
 
