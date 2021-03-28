@@ -4,25 +4,15 @@ const { dbConnectInsert } = require("../db-connect");
 
 const checkIfTempWasTaken = require("../middleware/checkIfTempWasTaken");
 
+const currentDate = require("../utils/formatDate");
+
 router.post("/store-temperature", checkIfTempWasTaken, async (req, res) => {
-  console.log(req.params);
-  const d = new Date();
-  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
-
-  const formatBr = d
-    .toLocaleDateString("pt-BR", options)
-    .split("-")
-    .reverse()
-    .join("/");
-
-  const newDate = new Date(formatBr);
-
   try {
     const insertQuery = `
     INSERT INTO USU_T577 (USU_CODEMP, USU_DATREG, USU_CODUSU, USU_NOMUSU, USU_TMPAFE, USU_HORREG) VALUES
   (
     1,
-    TO_DATE('${formatBr}','DD/MM/YYYY'),
+    TO_DATE('${currentDate}','DD/MM/YYYY'),
     :codUsu,
     (select usu_nomusu from usu_t522 where usu_codusu =:codNameUsu),
     :tmpAfe,
