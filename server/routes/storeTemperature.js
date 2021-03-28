@@ -4,7 +4,8 @@ const { dbConnectInsert } = require("../db-connect");
 
 const checkIfTempWasTaken = require("../middleware/checkIfTempWasTaken");
 
-router.get("/store-temperature", checkIfTempWasTaken, async (req, res) => {
+router.post("/store-temperature", checkIfTempWasTaken, async (req, res) => {
+  console.log(req.params);
   const d = new Date();
   const options = { year: "numeric", month: "2-digit", day: "2-digit" };
 
@@ -23,25 +24,23 @@ router.get("/store-temperature", checkIfTempWasTaken, async (req, res) => {
     1,
     TO_DATE('${formatBr}','DD/MM/YYYY'),
     :codUsu,
-    (select usu_nomusu from usu_t522 where usu_codusu =:nomUsu),
+    (select usu_nomusu from usu_t522 where usu_codusu =:codNameUsu),
     :tmpAfe,
     :horReg
   )
   `;
 
     const params = {
-      codUsu: req.params.codUsu,
-      nomUsu: req.params.nomUsu,
-      tmpAfe: parseFloat(req.params.tmpAfe),
-      horReg: req.params.horReg,
+      codUsu: req.body.codUsu,
+      codNameUsu: req.body.codNameUsu,
+      tmpAfe: parseFloat(req.body.tmpAfe),
+      horReg: req.body.horReg,
     };
 
     dbConnectInsert(
-      req,
-      res,
       insertQuery,
       params.codUsu,
-      params.nomUsu,
+      params.codNameUsu,
       params.tmpAfe,
       params.horReg
     );
