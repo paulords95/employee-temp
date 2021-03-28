@@ -10,7 +10,8 @@ export default function EmployeeList(props) {
   } else if (
     props.employees === undefined ||
     props.employees.length < 5 ||
-    props.employees.toString() === "TypeError: Failed to fetch"
+    props.employees.toString() === "TypeError: Failed to fetch" ||
+    props.employees.toString() === "server error"
   ) {
     return (
       <Alert severity="error">
