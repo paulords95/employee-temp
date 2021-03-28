@@ -10,6 +10,8 @@ import Temperature from "./components/Temperatures/Temperature";
 import logo from "./assets/logo2.png";
 
 import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 
 import getEmployees from "./utils/getEmployees";
 
@@ -61,6 +63,11 @@ function App() {
 
   return (
     <div className="App">
+      <Typography>
+        <Link href="" onClick={() => {}}>
+          Reinciar aplicativo
+        </Link>
+      </Typography>
       <img className="logo" src={logo} alt="logo"></img>
       <form className="mb-6 w-4/5 formTemp" action="/" method="post">
         <EmployeeList

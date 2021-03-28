@@ -19,7 +19,10 @@ export default function EmployeeList(props) {
           <strong>Erro ao buscar colaboradores</strong>
         </AlertTitle>
         Não foi possível buscar lista de colaboradores -
-        <strong> Reincie o aplicativo!</strong>
+        <strong>
+          {" "}
+          Verifique se está conectado ao wi-fi e reincie o aplicativo!
+        </strong>
       </Alert>
     );
   } else {
