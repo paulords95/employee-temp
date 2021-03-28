@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
   const checkRegister = `select * from usu_t577 where usu_datreg = TO_DATE('${formatBr}','DD/MM/YYYY')   AND usu_codusu = :codUsu`;
 
   try {
-    const result = await dbConnectSelect(checkRegister, req.params.codUsu);
+    const result = await dbConnectSelect(checkRegister, req.body.codUsu);
     if (result.rows) {
       return res.json("temperature already taken");
     }
