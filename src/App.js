@@ -30,13 +30,31 @@ function App() {
     })();
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const body = {
+      codUsu: currentEmployee.cod,
+      codNameUsu: currentEmployee.cod,
+      tmpAfe: parseFloat(temp + "." + tempDecimals),
+    };
     if (currentEmployee.name.length < 2) {
       toast.error(`Informe um usuário`);
+    }
+    const response = await fetch(
+      "http://localhost:5555/employees/store-temperature",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      }
+    );
+
+    const parseRes = await response.json();
+    if (response.status === 401) {
+      toast.error(parseRes);
     } else {
-      toast.success(
-        `Registro de temperatura de ${temp}.${tempDecimals}º para ${currentEmployee.name}`
-      );
+      toast.success(parseRes);
     }
   };
 
