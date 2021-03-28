@@ -26,7 +26,7 @@ router.post("/store-temperature", checkIfTempWasTaken, async (req, res) => {
 
     dbConnectInsert(insertQuery, codUsu, codNameUsu, tmpAfe, time);
 
-    res.status(200).send("Temperatura registrada com sucesso");
+    res.status(200).json("Temperatura registrada com sucesso");
   } catch (error) {
     console.error(error.message);
     res.status(500).json("server error");

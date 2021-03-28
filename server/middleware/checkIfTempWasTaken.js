@@ -8,9 +8,13 @@ module.exports = async (req, res, next) => {
   try {
     const result = await dbConnectSelect(checkRegister, req.body.codUsu);
     if (result.rows) {
-      return res.json(
-        `Temperatura já aferida para ${result.rows[0][3]} na data de hoje | ${result.rows[0][4]}º`
-      );
+      return res
+        .status(401)
+        .json(
+          `Temperatura já aferida para ${
+            result.rows[0][3]
+          } na data de hoje | ${result.rows[0][4].toFixed(1)}º`
+        );
     }
 
     next();
