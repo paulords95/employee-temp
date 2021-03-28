@@ -1,22 +1,16 @@
 module.exports = async (req, res, next) => {
   const { dbConnectInsert, dbConnectSelect } = require("../db-connect");
-  const d = new Date();
-  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
 
-  const formatBr = d
-    .toLocaleDateString("pt-BR", options)
-    .split("-")
-    .reverse()
-    .join("/");
+  const currentDate = require("../utils/formatDate")();
 
-  const newDate = new Date(formatBr);
-
-  const checkRegister = `select * from usu_t577 where usu_datreg = TO_DATE('${formatBr}','DD/MM/YYYY')   AND usu_codusu = :codUsu`;
+  const checkRegister = `select * from usu_t577 where usu_datreg = TO_DATE('${currentDate}','DD/MM/YYYY')   AND usu_codusu = :codUsu`;
 
   try {
     const result = await dbConnectSelect(checkRegister, req.body.codUsu);
     if (result.rows) {
-      return res.json("temperature already taken");
+      return res.json(
+        `Temperatura já aferida para ${result.rows[0][3]} na data de hoje | ${result.rows[0][4]}º`
+      );
     }
 
     next();
