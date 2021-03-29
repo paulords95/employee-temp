@@ -43,7 +43,7 @@ function App() {
       return;
     }
     const response = await fetch(
-      "http://192.168.0.11:5555/employees/store-temperature",
+      "http://192.168.0.11:2903/employees/store-temperature",
       {
         method: "POST",
         headers: {
@@ -63,11 +63,6 @@ function App() {
 
   return (
     <div className="App">
-      <Typography>
-        <Link href="" onClick={() => {}}>
-          Reinciar aplicativo
-        </Link>
-      </Typography>
       <img className="logo" src={logo} alt="logo"></img>
       <form className="mb-6 w-4/5 formTemp" action="/" method="post">
         <EmployeeList
@@ -113,6 +108,11 @@ function App() {
           pauseOnFocusLoss={false}
         />
       </form>
+      <Typography style={{ margin: "auto" }}>
+        <Link href="" onClick={() => {}}>
+          Reiniciar aplicativo
+        </Link>
+      </Typography>
     </div>
   );
 }
