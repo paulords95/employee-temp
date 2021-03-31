@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
 
 import "./temperaturelist.css";
 
@@ -54,6 +55,9 @@ const TemperatureList = () => {
 
   return (
     <div className="temps-wrap">
+      <Button className="form-btn" variant="contained" color="">
+        Voltar
+      </Button>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
