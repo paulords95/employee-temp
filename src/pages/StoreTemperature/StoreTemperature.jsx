@@ -66,6 +66,7 @@ const StoreTemperature = () => {
       <img className="logo" src={logo} alt="logo"></img>
 
       <form className="mb-6 w-4/5 formTemp" action="/" method="post">
+        <h1>Registrar temperatura do colaborador</h1>
         <EmployeeList
           employees={employee}
           onChangeForm={(value, value1) => {
