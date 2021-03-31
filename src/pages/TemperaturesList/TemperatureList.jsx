@@ -55,7 +55,7 @@ const TemperatureList = () => {
 
   return (
     <div className="temps-wrap">
-      <Button className="form-btn" variant="contained" color="">
+      <Button className="back-btn" variant="contained" color="primary">
         Voltar
       </Button>
       <TableContainer component={Paper}>
