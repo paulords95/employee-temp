@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import "./temperaturelist.css";
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: "darkgrey",
@@ -51,26 +53,28 @@ const TemperatureList = () => {
   }, []);
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell align="left">Nome</StyledTableCell>
-            <StyledTableCell align="left">Temperatura</StyledTableCell>
-            <StyledTableCell align="left">Hora</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {temps.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell align="left">{row.name}</StyledTableCell>
-              <StyledTableCell align="left">{row.temp}</StyledTableCell>
-              <StyledTableCell align="left">{row.time}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div className="temps-wrap">
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell align="left">Nome</StyledTableCell>
+              <StyledTableCell align="left">Temperatura</StyledTableCell>
+              <StyledTableCell align="left">Hora</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {temps.map((row) => (
+              <StyledTableRow key={row.name}>
+                <StyledTableCell align="left">{row.name}</StyledTableCell>
+                <StyledTableCell align="left">{row.temp}</StyledTableCell>
+                <StyledTableCell align="left">{row.time}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };
 
