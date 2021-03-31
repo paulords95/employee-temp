@@ -12,6 +12,8 @@ app.use("/employees", require("./routes/getEmployees"));
 
 app.use("/employees", require("./routes/storeTemperature"));
 
+app.use("/temperatures", require("./routes/fetchTemperatures"));
+
 app.listen(process.env.PORT, () => {
   console.log(`server running at port ${process.env.PORT}`);
 });
