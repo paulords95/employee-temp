@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  margin: auto;
+  margin-top: 5em;
+  max-width: 600px;
+}
+
+.logo {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 0%;
+}
+
+.formTemp {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 50%;
+}
+
+.form-btn {
+  position: relative;
+  width: 8em;
+  margin-top: 10em;
+  margin: 0 auto;
+  height: 3.5em;
+}
