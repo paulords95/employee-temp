@@ -43,7 +43,7 @@ function App() {
       return;
     }
     const response = await fetch(
-      "http://192.168.0.11:2903/employees/store-temperature",
+      "http://192.168.2.44:5555/employees/store-temperature",
       {
         method: "POST",
         headers: {
