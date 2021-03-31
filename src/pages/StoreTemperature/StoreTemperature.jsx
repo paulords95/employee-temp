@@ -64,6 +64,7 @@ const StoreTemperature = () => {
   return (
     <div className="App">
       <img className="logo" src={logo} alt="logo"></img>
+
       <form className="mb-6 w-4/5 formTemp" action="/" method="post">
         <EmployeeList
           employees={employee}
@@ -102,12 +103,16 @@ const StoreTemperature = () => {
         >
           Gravar
         </Button>
+        <Typography style={{ margin: "auto", marginTop: "50px" }}>
+          <Link href="/temperaturas">Temperaturas registradas</Link>
+        </Typography>
         <ToastContainer
           position="top-center"
           autoClose={3000}
           pauseOnFocusLoss={false}
         />
       </form>
+
       <Typography style={{ margin: "auto" }}>
         <Link href="" onClick={() => {}}>
           Reiniciar aplicativo

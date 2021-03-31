@@ -22,10 +22,12 @@ const dbConnectSelect = async (query, ...parameters) => {
       try {
         await connection.close();
         console.log("Conexão fechada");
-        if (result.rows.length == 0) {
-          return "query não retornou nada";
-        } else {
-          return result;
+        if (result) {
+          if (result.rows.length == 0) {
+            return "query não retornou nada";
+          } else {
+            return result;
+          }
         }
       } catch (err) {
         console.error(err.message);
