@@ -10,6 +10,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import "./temperaturelist.css";
 
@@ -46,6 +47,7 @@ const TemperatureList = () => {
   const history = useHistory();
   const handleOnClick = useCallback(() => history.push("/"), [history]);
   const [temps, setTemps] = useState([]);
+  const [pageload, setPageload] = useState(false);
   useEffect(() => {
     (async () => {
       try {
@@ -57,6 +59,7 @@ const TemperatureList = () => {
       } catch (error) {
         console.log(error);
       }
+      setPageload(true);
     })();
   }, []);
 
@@ -75,26 +78,30 @@ const TemperatureList = () => {
       </div>
 
       <div className="table-container">
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell align="left">Nome</StyledTableCell>
-                <StyledTableCell align="left">Temperatura</StyledTableCell>
-                <StyledTableCell align="left">Hora</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {temps.map((row) => (
-                <StyledTableRow key={row.name}>
-                  <StyledTableCell align="left">{row.name}</StyledTableCell>
-                  <StyledTableCell align="left">{row.temp}</StyledTableCell>
-                  <StyledTableCell align="left">{row.time}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        {pageload ? (
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell align="left">Nome</StyledTableCell>
+                  <StyledTableCell align="left">Temperatura</StyledTableCell>
+                  <StyledTableCell align="left">Hora</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {temps.map((row) => (
+                  <StyledTableRow key={row.name}>
+                    <StyledTableCell align="left">{row.name}</StyledTableCell>
+                    <StyledTableCell align="left">{row.temp}</StyledTableCell>
+                    <StyledTableCell align="left">{row.time}</StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        ) : (
+          <LinearProgress style={{ width: "100%" }} />
+        )}
       </div>
       <div className="bar">
         <Button
