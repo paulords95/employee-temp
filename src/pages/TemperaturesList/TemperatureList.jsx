@@ -52,7 +52,7 @@ const TemperatureList = () => {
     (async () => {
       try {
         const response = await fetch(
-          "http://192.168.0.11:5555/temperatures/get-temperatures"
+          "http://localhost:2903/temperatures/get-temperatures"
         );
 
         setTemps(await response.json());
@@ -102,16 +102,6 @@ const TemperatureList = () => {
         ) : (
           <LinearProgress style={{ width: "100%" }} />
         )}
-      </div>
-      <div className="bar">
-        <Button
-          className="back-btn"
-          variant="text"
-          color="primary"
-          onClick={handleOnClick}
-        >
-          <ArrowBackIcon />
-        </Button>
       </div>
     </div>
   );

@@ -11,19 +11,23 @@
 
 .bar {
   display: flex;
+  position: fixed;
   justify-items: center;
   align-items: center;
-  width: 90vw;
+  width: 100vw;
   height: max-content;
+  background-color: rgb(230, 236, 243);
 }
 .bar > h1 {
-  margin: 0 auto;
+  margin: auto;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   color: rgb(36, 36, 61);
+  margin-left: 10px;
 }
 
 .table-container {
   display: flex;
   width: 100%;
+  margin-top: 40px;
 }
