@@ -52,7 +52,7 @@ const TemperatureList = () => {
     (async () => {
       try {
         const response = await fetch(
-          "http://localhost:2903/temperatures/get-temperatures"
+          "http://192.168.2.44:5555/temperatures/get-temperatures"
         );
 
         setTemps(await response.json());

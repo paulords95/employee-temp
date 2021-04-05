@@ -3,7 +3,7 @@ module.exports = async (req, res, next) => {
 
   const currentDate = require("../utils/formatDate")();
 
-  const checkRegister = `select * from usu_t577 where usu_datreg = TO_DATE('${currentDate}','DD/MM/YYYY')   AND usu_codusu = :codUsu`;
+  const checkRegister = `select * from usu_t577 where usu_datreg = TO_DATE('30/03/2021','DD/MM/YYYY')   AND usu_codusu = :codUsu`;
 
   try {
     const result = await dbConnectSelect(checkRegister, req.body.codUsu);

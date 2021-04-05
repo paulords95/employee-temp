@@ -4,7 +4,7 @@ const { dbConnectInsert } = require("../db-connect");
 
 const checkIfTempWasTaken = require("../middleware/checkIfTempWasTaken");
 
-const currentDate = require("../utils/formatDate")();
+const currentDate = require("../utils/formatDate");
 
 router.post("/store-temperature", checkIfTempWasTaken, async (req, res) => {
   try {
@@ -16,7 +16,7 @@ router.post("/store-temperature", checkIfTempWasTaken, async (req, res) => {
       INSERT INTO USU_T577 (USU_CODEMP, USU_DATREG, USU_CODUSU, USU_NOMUSU, USU_TMPAFE, USU_HORREG) VALUES
     (
       1,
-      TO_DATE('${currentDate}','DD/MM/YYYY'),
+      TO_DATE('${currentDate()}','DD/MM/YYYY'),
       :codUsu,
       (select usu_nomusu from usu_t522 where usu_codusu =:codNameUsu),
       :tmpAfe,

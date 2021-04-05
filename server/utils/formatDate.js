@@ -11,5 +11,4 @@ const currentDate = () => {
   return formatBr;
 };
 
-console.log(currentDate());
 module.exports = currentDate;
