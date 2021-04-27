@@ -16,7 +16,7 @@ router.post("/store-temperature", checkIfTempWasTaken, async (req, res) => {
       INSERT INTO USU_T577 (USU_CODEMP, USU_DATREG, USU_CODUSU, USU_NOMUSU, USU_TMPAFE, USU_HORREG) VALUES
     (
       1,
-      TO_DATE('06/04/2021','DD/MM/YYYY'),
+      TO_DATE('26/04/2021','DD/MM/YYYY'),
       :codUsu,
       (select usu_nomusu from usu_t522 where usu_codusu =:codNameUsu),
       :tmpAfe,

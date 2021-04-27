@@ -40,6 +40,7 @@ export default function Temperature(props) {
           onChange={props.handleChange}
           defaultValue={36}
         >
+          <MenuItem value={33}>33</MenuItem>
           <MenuItem value={34}>34</MenuItem>
           <MenuItem value={35}>35</MenuItem>
           <MenuItem value={36}>36</MenuItem>
