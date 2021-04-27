@@ -48,11 +48,12 @@ const TemperatureList = () => {
   const handleOnClick = useCallback(() => history.push("/"), [history]);
   const [temps, setTemps] = useState([]);
   const [pageload, setPageload] = useState(false);
+
   useEffect(() => {
     (async () => {
       try {
         const response = await fetch(
-          "http://192.168.2.44:5555/temperatures/get-temperatures"
+          "http://192.168.2.123:5555/temperatures/get-temperatures"
         );
 
         setTemps(await response.json());

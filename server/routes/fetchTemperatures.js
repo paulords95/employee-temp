@@ -8,8 +8,8 @@ const convertMinutesToHours = require("../utils/minutesToHours");
 
 router.get("/get-temperatures", async (req, res) => {
   try {
-    const query = `select usu_nomusu, usu_tmpafe, usu_horreg from usu_t577 where usu_datreg = TO_DATE(:dat,'DD/MM/YYYY') order by 3`;
-    const temperatures = await dbConnectSelect(query, currentDate());
+    const query = `select usu_nomusu, usu_tmpafe, usu_horreg from usu_t577 where usu_datreg = TO_DATE('06/04/2021','DD/MM/YYYY') order by 3`;
+    const temperatures = await dbConnectSelect(query);
     const response = [];
     if (temperatures.rows) {
       let total = 0;
